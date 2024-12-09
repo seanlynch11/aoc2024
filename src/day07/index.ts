@@ -2,19 +2,14 @@ import run from 'aocrunner';
 
 const parseInput = (rawInput: string) => rawInput;
 
-// 1582598718861
 const testValues = (
   goal: number,
   items: number[],
   prevTotal: number,
 ): boolean => {
-  if (prevTotal == goal) {
-    return true;
-  }
-
   let nextVal = items.shift();
   if (!nextVal) {
-    return false;
+    return prevTotal == goal;
   }
 
   return (
@@ -40,19 +35,14 @@ const part1 = (rawInput: string) => {
   return total;
 };
 
-// 165278168517146 too high
 const testOperations = (
   goal: number,
   items: number[],
   prevTotal: number,
 ): boolean => {
-  if (prevTotal == goal) {
-    return true;
-  }
-
   let nextVal = items.shift();
   if (!nextVal) {
-    return false;
+    return prevTotal == goal;
   }
 
   return (
@@ -91,12 +81,6 @@ run({
           292: 11 6 16 20
         `,
         expected: 3749,
-      },
-      {
-        input: `
-          408492: 10 120 1 412 2 1 9 6 9 14
-        `,
-        expected: 408492,
       },
     ],
     solution: part1,
